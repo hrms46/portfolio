@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarathy Group - Employment Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e5799, #207cca, #2989d8, #1e5799);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Company Header Styles */
+        .company-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f4f8;
+        }
+        
+        .company-logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #1e5799, #2989d8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .company-name {
+            font-size: 2.5rem;
+            color: #1e5799;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .company-name:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #2989d8;
+            border-radius: 2px;
+        }
+        
+        .company-details {
+            margin-top: 25px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .company-details strong {
+            color: #1e5799;
+        }
+        
+        /* Form Styles */
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            font-size: 2rem;
+            color: #1e5799;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: #555;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .input-box {
+            margin-bottom: 18px;
+        }
+        
+        .input-box label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .input-box input, 
+        .input-box textarea, 
+        .input-box select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #f9fbfd;
+        }
+        
+        .input-box input:focus, 
+        .input-box textarea:focus, 
+        .input-box select:focus {
+            border-color: #2989d8;
+            box-shadow: 0 0 0 3px rgba(41, 137, 216, 0.2);
+            outline: none;
+            background: #fff;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px;
+        }
+        
+        th {
+            background-color: #1e5799;
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f9fbfd;
+        }
+        
+        td input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            background: #fff;
+        }
+        
+        .form-section {
+            margin-top: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        h3 {
+            color: #1e5799;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-decoration: underline;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3 i {
+            margin-right: 10px;
+            color: #2989d8;
+        }
+        
+        .form button {
+            height: 55px;
+            width: 100%;
+            margin-top: 30px;
+            background: linear-gradient(to right, #1e5799, #2989d8);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 87, 153, 0.3);
+        }
+        
+        .form button:hover {
+            background: linear-gradient(to right, #16467e, #2071b8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 87, 153, 0.4);
+        }
+        
+        .form button:active {
+            transform: translateY(0);
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .section-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #1e5799;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .form-note {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2989d8;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .company-name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <!-- Sarathy Group Header -->
+        <div class="company-header">
+            <div class="company-logo">SARATHY GROUP</div>
+            <h1 class="company-name">Sarathy Group</h1>
+            <div class="company-details">
+                <p><strong>HR Department</strong></p>
+                <p>Head Office: Sarathy HR Department, Kollam, Kerala</p>
+                <p>Phone: +91 9037223665</p>
+                <p>Email: hr@sarathygroup.com</p>
+                <p>Website: www.sarathygroup.com</p>
+            </div>
+        </div>
+        
+        <!-- Application Form -->
+        <div class="form-header">
+            <h2>Employment Application</h2>
+            <p>Complete all sections to apply for the position</p>
+        </div>
+        
+        <form class="form">
+            <!-- Basic Information -->
+            <div class="form-section">
+                <h3><span class="section-number">1</span> <i class="fas fa-user"></i> Basic Information</h3>
+                
+                <div class="input-box">
+                    <label class="required">Post Applied For</label>
+                    <input type="text" name="post_applied" required>
+                </div>
+                
+                <div class="input-box">
+                    <label class="required">Full Name</label>
+                    <input type="text" name="full_name" required>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Age</label>
+                        <input type="number" name="age" required min="18">
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Date of Birth</label>
+                        <input type="date" name="dob" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Height</label>
+                        <input type="text" name="height" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Weight</label>
+                        <input type="text" name="weight" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Blood Group</label>
+                        <input type="text" name="blood_group" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Nationality</label>
+                        <input type="text" name="nationality" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Religion</label>
+                        <input type="text" name="religion" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Place of Birth</label>
+                        <input type="text" name="place_of_birth" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Mobile No</label>
+                        <input type="tel" name="mobile" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Email Address</label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Father’s / Husband’s Name</label>
+                        <input type="text" name="guardian_name" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Occupation</label>
+                        <input type="text" name="guardian_occupation" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Marital Status</label>
+                        <select name="marital_status" required>
+                            <option value="">Select Status</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Languages Known</label>
+                        <input type="text" name="languages_known" required>
+                    </div>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="input-box">
+                        <label class="required">Emergency Contact Name</label>
+                        <input type="text" name="emergency_name" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label class="required">Emergency Contact No</label>
+                        <input type="tel" name="emergency_contact" required>
+                    </div>
+                </div>
+                
+                <div class="input-box">
+                    <label class="required">Relation</label>
+                    <input type="text" name="relation" required>
+                </div>
+            </div>
+
+            <!-- Family Details -->
+            <div class="form-section">
+                <h3><span class="section-number">2</span> <i class="fas fa-users"></i> Family Details</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Relation</th>
+                        <th>Age</th>
+                        <th>Occupation</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fam_name1" required></td>
+                        <td><input type="text" name="fam_relation1" required></td>
+                        <td><input type="number" name="fam_age1" required min="1"></td>
+                        <td><input type="text" name="fam_job1" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fam_name2" required></td>
+                        <td><input type="text" name="fam_relation2" required></td>
+                        <td><input type="number" name="fam_age2" required min="1"></td>
+                        <td><input type="text" name="fam_job2" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fam_name3"></td>
+                        <td><input type="text" name="fam_relation3"></td>
+                        <td><input type="number" name="fam_age3"></td>
+                        <td><input type="text" name="fam_job3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fam_name4"></td>
+                        <td><input type="text" name="fam_relation4"></td>
+                        <td><input type="number" name="fam_age4"></td>
+                        <td><input type="text" name="fam_job4"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Educational Qualification -->
+            <div class="form-section">
+                <h3><span class="section-number">3</span> <i class="fas fa-graduation-cap"></i> Educational Qualification</h3>
+                <table>
+                    <tr>
+                        <th>Course</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="course1" required></td>
+                        <td><input type="text" name="inst1" required></td>
+                        <td><input type="text" name="year1" required></td>
+                        <td><input type="text" name="grade1" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="course2" required></td>
+                        <td><input type="text" name="inst2" required></td>
+                        <td><input type="text" name="year2" required></td>
+                        <td><input type="text" name="grade2" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="course3"></td>
+                        <td><input type="text" name="inst3"></td>
+                        <td><input type="text" name="year3"></td>
+                        <td><input type="text" name="grade3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="course4"></td>
+                        <td><input type="text" name="inst4"></td>
+                        <td><input type="text" name="year4"></td>
+                        <td><input type="text" name="grade4"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Experience Details -->
+            <div class="form-section">
+                <h3><span class="section-number">4</span> <i class="fas fa-briefcase"></i> Experience Details</h3>
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>Designation</th>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exp_company1" required></td>
+                        <td><input type="text" name="exp_designation1" required></td>
+                        <td><input type="date" name="exp_from1" required></td>
+                        <td><input type="date" name="exp_to1" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exp_company2"></td>
+                        <td><input type="text" name="exp_designation2"></td>
+                        <td><input type="date" name="exp_from2"></td>
+                        <td><input type="date" name="exp_to2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exp_company3"></td>
+                        <td><input type="text" name="exp_designation3"></td>
+                        <td><input type="date" name="exp_from3"></td>
+                        <td><input type="date" name="exp_to3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exp_company4"></td>
+                        <td><input type="text" name="exp_designation4"></td>
+                        <td><input type="date" name="exp_from4"></td>
+                        <td><input type="date" name="exp_to4"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- For Office Use Only -->
+            <div class="form-section">
+                <h3><span class="section-number">5</span> <i class="fas fa-building"></i> For Office Use Only</h3>
+                <table>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Remarks</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="ref1"></td>
+                        <td><input type="text" name="remark1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="ref2"></td>
+                        <td><input type="text" name="remark2"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-note">
+                <p><strong>Note:</strong> Fields marked with an asterisk (<span style="color: #e74c3c;">*</span>) are required.</p>
+            </div>
+
+            <button type="submit">
+                <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+        </form>
+    </section>
+
+    <script>
+        // Set max date for date of birth to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="dob"]').setAttribute('max', today);
+        });
+    </script>
+</body>
+</html>
